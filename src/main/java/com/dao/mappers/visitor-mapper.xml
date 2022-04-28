@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.VisitorMapper">
+    <!--查询学生信息-->
+    <select id="Import" resultType="com.beans.Visitor">
+        select * from visitor
+        <where>
+            <if test="vname!=null and vname!=''">
+                and vname=#{vname}
+            </if>
+            <if test="vphone!=null and vphone!=''">
+                and vphone=#{vphone}
+            </if>
+        </where>
+        LIMIT #{num},#{count}
+    </select>
+    <!--对应学生总数-->
+    <select id="Mount" resultType="int">
+        select count(*) from visitor
+        <where>
+            <if test="vname!=null and vname!=''">
+                and vname=#{vname}
+            </if>
+            <if test="vphone!=null and vphone!=''">
+                and vphone=#{vphone}
+            </if>
+        </where>
+    </select>
+    <!--查询最后一个学生，获取id值-->
+    <select id="lastVisitor" resultType="int">
+        select id from visitor order by id DESC limit 1;
+    </select>
+    <!--添加学生-->
+    <insert id="addVisitor">
+        INSERT into visitor VALUES(#{id},#{vname},#{vphone},#{dormId},#{dormName},#{visitTime});
+    </insert>
+    <!--删除学生-->
+    <delete id="deleteVisitor">
+        delete from visitor where id=#{id}
+    </delete>
+    <!--修改学生-->
+    <update id="modVisitor">
+        update visitor set vname=#{vname},vphone=#{vphone},dormId=#{dormId},dormName=#{dormName},visitTime=#{visitTime} where id=#{id};
+    </update>
+</mapper>

@@ -1,0 +1,139 @@
+*{
+    font-family: Comic Sans MS;
+}
+html,body{
+    font-family: Comic Sans MS;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: linear-gradient(#e493d0,#7873f5);
+}
+.container{
+    user-select: none;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    box-shadow: 0 5px 10px rgba(0,0,0,.3);
+}
+.head{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    top: 30px;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+}
+.head div a{
+    color: #7873f5;
+}
+.head div a{
+    transition: all 0.3s;
+    font-size: 14px;
+    color: rgba(120, 115, 245, .5);
+}
+.head div .charge{
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #7873f5;
+}
+.head #p{
+    width: 1.5px;
+    margin: 0 2px;
+}
+.middle{
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top: 130px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.middle .text{
+    position: relative;
+}
+.middle .text input{
+    outline: none;
+    cursor: pointer;
+    border: 2px solid rgba(120, 115, 245, .5);
+    border-radius: 4px;
+    width: 180px;
+    line-height: 35px;
+    padding: 0 23px;
+    transition: all 0.5s;
+}
+.middle .text i{
+    position: absolute;
+    top: 11px;
+    left: 7px;
+    color: #7873f5;
+}
+.middle .text input:focus{
+    border-color: #7873f5;
+}
+.foot{
+    width: 100%;
+    position: absolute;
+    top: 260px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+}
+.footLeft, .middleLeft{
+    display: none;
+}
+.foot #logBtn, .footLeft #registerBtn{
+    outline: none;
+    width: 226px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #fff;
+    border: 0;
+    transition: all 0.3s;
+    background: linear-gradient(90deg , #03a9f4, #f441a5, #ffeb3b , #03a9f4);
+    border-radius: 20px;
+    background-size: 400%;
+}
+.foot a{
+    font-size: 12px;
+    transition: all 0.3s;
+    color: rgba(105, 100, 250, 0.5);
+}
+.foot a:hover{
+    transform: scale(1.1);
+    color: rgba(105, 100, 250, 1);
+}
+.foot #logBtn:active, .footLeft #registerBtn:active{
+    transform: scale(0.95);
+}
+.foot #logBtn:hover, .footLeft #registerBtn:hover{
+    animation: flows 5s infinite ease-in-out;
+}
+.midL{
+    opacity: 0;
+}
+@keyframes flows {
+    100% {
+        background-position: -400% 0;
+    }
+}
+@keyframes move {
+    from{
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+.text i.fa-eye-slash, .text i.fa-eye{
+    color: #bbb9b9;
+    left: 200px;
+}

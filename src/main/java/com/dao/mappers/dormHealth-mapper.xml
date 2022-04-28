@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.DormHealthMapper">
+    <!--查询学生信息-->
+    <select id="Import" resultType="com.beans.DormHealth">
+        select * from dorm_health
+        <where>
+            <if test="dormId!=null and dormId!=''">
+                and dormId=#{dormId}
+            </if>
+            <if test="dormName!=null and dormName!=''">
+                and dormName=#{dormName}
+            </if>
+        </where>
+        LIMIT #{num},#{count}
+    </select>
+    <!--对应学生总数-->
+    <select id="Mount" resultType="int">
+        select count(*) from dorm_health
+        <where>
+            <if test="dormId!=null and dormId!=''">
+                and dormId=#{dormId}
+            </if>
+            <if test="dormName!=null and dormName!=''">
+                and dormName=#{dormName}
+            </if>
+        </where>
+    </select>
+    <!--查询最后一个学生，获取id值-->
+    <select id="lastDormHealth" resultType="int">
+        select id from dorm_health order by id DESC limit 1;
+    </select>
+    <!--添加学生-->
+    <insert id="addDormHealth">
+        INSERT into dorm_health VALUES(#{id},#{dormId},#{dormName},#{dormHealth},#{createTime},#{updateTime});
+    </insert>
+    <!--删除学生-->
+    <delete id="deleteDormHealth">
+        delete from dorm_health where id=#{id}
+    </delete>
+    <!--修改学生-->
+    <update id="modDormHealth">
+        update dorm_health set dormId=#{dormId},dormName=#{dormName},dormHealth=#{dormHealth},createTime=#{createTime},updateTime=#{updateTime} where id=#{id};
+    </update>
+</mapper>

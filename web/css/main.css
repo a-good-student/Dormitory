@@ -1,0 +1,193 @@
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    background-color: white;
+}
+/*导航条*/
+header{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    z-index: 999;
+}
+header .projectName{
+    width: 200px;
+    line-height: 50px;
+    text-align: center;
+}
+header .projectName a{
+    display: block;
+    font-size: 18px;
+    color: #fff;
+}
+header>i{
+    position: absolute;
+    left: 350px;
+    transition: all 0.8s;
+    padding: 10px 12px;
+    color: white;
+    border-radius: 6px;
+    background-color: #2f2929;
+    transform: translateX(-150px);
+}
+header>i:hover{
+    background-color: #FF6700;
+}
+header .projectTitle{
+    margin-right: 20px;
+    width: 110px;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    color: #fff;
+    font-size: 14px;
+    justify-content: space-between;
+}
+header .projectTitle a{
+    display: block;
+    color: white;
+}
+header .projectTitle .userTools li a{
+    color: #03a9f4;
+    line-height: 30px;
+    border-bottom: 1.5px solid #03a9f4;
+    transition: all 0.3s;
+}
+
+header .projectTitle .username i:last-child{
+    font-size: 18px;
+    transform: translate(3px,-3px);
+    transition: all 0.5s;
+}
+header .projectTitle ul li{
+    display: none;
+    opacity: 0;
+}
+header .projectTitle .userTools:hover .username i:last-child{
+    color: #FF6700;
+}
+header .projectTitle .userTools:hover li{
+    display: block;
+}
+header .projectTitle .userTools li:hover a{
+    color: #FF6700;
+    border-color: #FF6700;
+}
+header .projectTitle .userTools:hover li{
+    animation: menus 0.3s forwards ease-in-out;
+    animation-delay: calc(var(--x)*(0.3s));
+}
+
+
+@keyframes menus {
+    from {
+        opacity: 0;
+        transform: translateX(30px) rotateY(90deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) rotateY(0);
+    }
+}
+
+/*中间位置的*/
+nav{
+    width: 100%;
+    min-height: 460px;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+}
+nav .containLeft{
+    width: 200px;
+    height: 100%;
+    border-right: 1px solid rgba(205, 203, 203, 0.4);
+    background-color: #eeeeee;
+    transition: all 0.2s;
+}
+nav .containLeft>div{
+    width: 100%;
+    line-height: 40px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(205, 203, 203, 0.4);
+}
+nav .containLeft>div>a{
+    color: #3e3e3e;
+    display: block;
+    transition: all 0.5s;
+    margin-left: 15px;
+}
+nav .containLeft>div>a>i{
+    margin-right: 10px;
+    height: 100%;
+}
+nav .containLeft>div>ul a{
+    display: block;
+    color: #3e3e3e;
+    transition: all 0.5s;
+    margin-left: 35px;
+    position: relative;
+}
+nav .containLeft>div>ul li{
+    transition: all 0.5s;
+    background-color: rgba(205, 203, 203, 0.4);
+}
+nav .containLeft>div>a:after{
+    content: "‹";
+    font-size: 20px;
+    float: right;
+    margin-right: 20px;
+    transition: all 0.5s;
+}
+nav .containLeft>div>ul a:before{
+    content: "›";
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: -12px;
+    margin-right: 14px;
+}
+nav .containLeft>div>ul a:after{
+    content: "";
+    width: 5px;
+    height: 100%;
+    left: -35px;
+    position: absolute;
+    background-color: #4e4e4e;
+}
+div.collapsed{
+    height: 40px;
+}
+nav .containLeft>div:hover>a{
+    color: #FF6700;
+}
+nav .containLeft>div:hover>a:after{
+    transform: rotate(-90deg);
+}
+nav .containLeft>div>ul li:hover{
+    background: linear-gradient(to right,rgba(78,78,78,1),
+    rgba(78,78,78,0));
+}
+nav .containLeft>div>ul li:hover a{
+    color: #fff;
+}
+
+
+/*底部*/
+footer{
+    width: 100%;
+    height: 50px;
+    background-color: black;
+}
+footer div{
+    margin-left: 25px;
+    color: #fff;
+    line-height: 50px;
+}

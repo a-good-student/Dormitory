@@ -1,0 +1,377 @@
+header{
+    position: relative;
+    margin: auto;
+    line-height: 40px;
+    border-bottom: 1px solid rgba(205, 203, 203, 0.4);
+}
+header .headerTitle{
+    color: rgb(111, 109, 109);
+    margin-left: 30px;
+}
+header a{
+    position: absolute;
+    right: 30px;
+    top: 1px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: white;
+    border-radius: 3px 3px 0px 0;
+    background-color: rgb(0, 135, 137);
+}
+header>a>i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: auto;
+}
+header, nav{
+    width: 100%;
+    min-width: 1000px;
+}
+nav{
+    display: block;
+    height: 70px;
+    /*background-color: #4e4e4e;*/
+}
+nav .searchContain{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+nav .searchContain input:nth-child(1){
+    /*为了让左端对齐*/
+    margin-left: 30px;
+}
+nav .searchContain input{
+    padding: 0 10px;
+    cursor: pointer;
+    outline: none;
+    width: 100px;
+    margin-right: 5px;
+    height: 34px;
+    border-radius: 2px;
+    transition: all 0.5s;
+    border: 1px solid rgba(205, 203, 203, 0.4);
+    text-align: center;
+}
+nav .searchContain button{
+    width: 40px;
+    height: 35px;
+    border: 0;
+    color: #fff;
+    outline: none;
+    border-radius: 2px;
+    background-color: rgb(0, 135, 137);
+    transition: all 0.5s;
+}
+nav .searchContain input:focus{
+    border-color: #FF6700;
+}
+nav .searchContain button:hover{
+    background-color: #FF6700;
+}
+nav .searchContain button:active{
+    transform: scale(0.9);
+}
+.middle{
+    width: 100%;
+    min-width: 1000px;
+    height: 36px;
+}
+.middle>div{
+    height: 36px;
+    margin: 0 30px;
+    line-height: 36px;
+    border-radius: 2px;
+    background-color: rgba(205, 203, 203, 0.4);
+}
+.middle button{
+    padding: 0;
+    width: 55px;
+    height: 30px;
+    border: 0;
+    color: #fff;
+    outline: none;
+    margin-left: 3px;
+    border-radius: 2px;
+    transition: all 0.5s;
+}
+.middle span{
+    float: right;
+    line-height: 36px;
+    margin-right: 3px;
+}
+.middle button:nth-child(1){
+    background-color: #2cb9fa;
+}
+.middle button:nth-child(1):hover{
+    background-color: rgba(44, 185, 250, 0.5);
+}
+.middle button:nth-child(1):active{
+    transform: scale(0.9);
+}
+.middle button:nth-child(2){
+    background-color: #ffb700;
+}
+.middle button:nth-child(2):hover{
+    background-color: rgba(255, 183, 0, 0.5);
+}
+.middle button:nth-child(2):active{
+    transform: scale(0.9);
+}
+footer{
+    width: 100%;
+    min-width: 1000px;
+    height: 322px;
+    overflow: hidden;
+}
+footer table{
+    margin: 10px 30px 0 30px;
+    display: block;
+    border-collapse:collapse;
+    /*box-shadow: 0 0 7px rgba(0,0,0,.3);*/
+}
+footer table thead th{
+    /*不知道为啥，设置的很大也不会超出父元素的大小，但是设置小了在父元素变宽时
+    会太窄*/
+    width: 500px;
+    color: #848282;
+    border: 0.1px solid rgba(205, 203, 203, 0.8);
+    line-height: 40px;
+    background-color: rgba(205, 203, 203, 0.4);
+}
+footer table tbody td{
+    line-height: 35px;
+    width: 10%;
+    text-align: center;
+    color: #848282;
+    border: 0.1px solid rgba(205, 203, 203, 0.8);
+}
+footer .page{
+    width: 450px;
+    margin: 0 auto;
+    line-height: 30px;
+}
+footer .page #goto{
+    outline: none;
+    padding: 0;
+    width: 40px;
+    cursor: pointer;
+    text-align: center;
+}
+footer .page #go{
+    outline: none;
+    padding: 0;
+    width: 40px;
+    border: 0;
+    border-radius: 2px;
+    background-color: rgb(0, 135, 137);
+    line-height: 20px;
+    color: #fff;
+}
+footer .page{
+    user-select: none;
+    width: 450px;
+    margin: 0 auto;
+    line-height: 30px;
+}
+footer .page #goto{
+    outline: none;
+    border: 1px solid;
+    padding: 0;
+    width: 40px;
+    cursor: pointer;
+    text-align: center;
+}
+footer .page #go{
+    outline: none;
+    padding: 0;
+    width: 40px;
+    border: 0;
+    border-radius: 2px;
+    background-color: rgb(0, 135, 137);
+    line-height: 20px;
+    color: #fff;
+}
+footer .page a{
+    cursor: pointer;
+}
+footer .page a:hover{
+    color: #FF6700;
+}
+footer .page #goto:focus{
+    border-color: #FF6700;
+}
+footer .page #go:hover{
+    background-color: #FF6700;
+}
+footer .page #go:active{
+    transform: scale(0.9);
+}
+#tbody td:last-child{
+    user-select: none;
+}
+.delete:hover, .modify:hover{
+    color: #FF6700;
+    transform: scale(1.1);
+}
+.addContain{
+    width: 100%;
+    min-width: 1000px;
+    height: 0;
+    top:0;
+    left: 0;
+    position: absolute;
+    background-color: white;
+    z-index: 3;
+    overflow: hidden;
+    transition: height 0.8s, background-color 1.8s;
+}
+.addContain .addWrapper{
+    position: absolute;
+    width: 500px;
+    height: 200px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,.4);
+    z-index: 3;
+}
+.addContain .addWrapper>div{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 40px;
+    background-color: white;
+}
+.addContain .addWrapper>div>div{
+    flex-grow: 1;
+}
+.addContain .addWrapper>div>div input{
+    outline: none;
+    padding: 0 10px;
+    width: 270px;
+    height: 25px;
+    transition: all 0.5s;
+    border-radius: 2px;
+    border: 1px solid rgb(236, 234, 234);
+}
+.addContain .addWrapper>div span{
+    width: 120px;
+    text-align: right;
+    flex-grow: 0;
+}
+.addContain .addWrapper>div:first-child{
+    position: relative;
+    background-color: rgb(236, 234, 234);
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(222, 219, 219);
+}
+.addContain .addWrapper>div:first-child span{
+    position: absolute;
+    width: 65px;
+    left: 20px;
+}
+.addContain .addWrapper>div:first-child i{
+    position: absolute;
+    right: 20px;
+    transition: all 0.4s;
+}
+.addContain .addWrapper>div:last-child button{
+    width: 50px;
+    height: 30px;
+    user-select: none;
+    border-radius: 2px;
+    margin-right: 10px;
+    transition: all 0.2s;
+    background-color: white;
+    color: rgb(137, 136, 136);
+    border: 1px solid rgb(222, 219, 219);
+}
+.addContain .addWrapper>div>div input:focus{
+    border-color: #FF6700;
+}
+.addContain .addWrapper>div:first-child i:hover{
+    color: #FF6700;
+    transform: scale(1.2);
+}
+.addContain .addWrapper>div:first-child i:active{
+    color: rgb(137, 136, 136);
+    transform: scale(1.1);
+}
+.addContain .addWrapper>div:last-child button:hover{
+    background-color: #03a9f4;
+    color: #fff;
+}
+.addContain .addWrapper>div:last-child button:active{
+    transform: scale(0.9);
+}
+.modContain{
+    width: 0;
+    min-width: 0;
+    height: 100%;
+    transition: width 0.4s, min-width 0.4s;
+}
+.delete:hover{
+    color: #FF6700;
+    transform: scale(1.1);
+}
+#modContain #modWrapper>div:first-child{
+    background-color: #FF6700;
+    color: #fff;
+}
+#modContain #modWrapper>div:first-child span{
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100px;
+}
+#modContain #modWrapper>div:first-child i:hover{
+    color: white;
+}
+#modContain #modWrapper>div:not(:first-child) span{
+    margin-right: 10px;
+}
+#mod{
+    width: 200px;
+    border-radius: 3px;
+    background-color: #FF6700;
+    color: white;
+}
+#mod:hover{
+    background-color: rgba(255, 103, 0, 0.5);
+}
+tbody tr{
+    transition: all 0.5s;
+}
+tbody tr:hover{
+    background-color: rgba(231, 228, 228, 0.5);
+}
+/*让页面切换时更加丝滑*/
+body{
+    opacity: 0;
+    animation: page-fade-in 1s forwards;
+}
+@keyframes page-fade-in {
+    0% {
+        opacity: 0;
+        transform: scale(.9)
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1)
+    }
+}

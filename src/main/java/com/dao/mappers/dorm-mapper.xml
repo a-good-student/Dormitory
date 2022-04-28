@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.DormMapper">
+    <!--查询学生信息-->
+    <select id="Import" resultType="com.beans.Dorm">
+        select * from dorm
+        <where>
+            <if test="dormId!=null and dormId!=''">
+                and dormId=#{dormId}
+            </if>
+            <if test="dormName!=null and dormName!=''">
+                and dormName=#{dormName}
+            </if>
+            <if test="admin!=null and admin!=''">
+                and admin=#{admin}
+            </if>
+        </where>
+        LIMIT #{num},#{count}
+    </select>
+    <!--对应学生总数-->
+    <select id="Mount" resultType="int">
+        select count(*) from dorm
+        <where>
+            <if test="dormId!=null and dormId!=''">
+                and dormId=#{dormId}
+            </if>
+            <if test="dormName!=null and dormName!=''">
+                and dormName=#{dormName}
+            </if>
+            <if test="admin!=null and admin!=''">
+                and admin=#{admin}
+            </if>
+        </where>
+    </select>
+    <!--查询最后一个学生，获取id值-->
+    <select id="lastDorm" resultType="int">
+        select id from dorm order by id DESC limit 1;
+    </select>
+    <!--添加学生-->
+    <insert id="addDorm">
+        INSERT into dorm VALUES(#{id},#{dormId},#{dormName},#{bedNum},#{bedUse},#{admin});
+    </insert>
+    <!--删除学生-->
+    <delete id="deleteDorm">
+        delete from dorm where id=#{id}
+    </delete>
+    <!--修改学生-->
+    <update id="modDorm">
+        update dorm set dormId=#{dormId},dormName=#{dormName},bedNum=#{bedNum},bedUse=#{bedUse},admin=#{admin} where id=#{id};
+    </update>
+</mapper>

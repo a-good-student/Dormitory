@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.StudentMapper">
+    <!--查询学生信息-->
+    <select id="Import" resultType="com.beans.Student">
+        select * from student
+        <where>
+            <if test="sname!=null and sname!=''">
+                and Sname=#{sname}
+            </if>
+            <if test="sno!=null and sno!=''">
+                and Sno=#{sno}
+            </if>
+            <if test="classId!=null and classId!=''">
+                and ClassId=#{classId}
+            </if>
+            <if test="className!=null and className!=''">
+                and ClassName=#{className}
+            </if>
+        </where>
+        LIMIT #{num},#{count}
+    </select>
+    <!--对应学生总数-->
+    <select id="Mount" resultType="int">
+        select count(*) from student
+        <where>
+            <if test="sname!=null and sname!=''">
+                and Sname=#{sname}
+            </if>
+            <if test="sno!=null and sno!=''">
+                and Sno=#{sno}
+            </if>
+            <if test="classId!=null and classId!=''">
+                and ClassId=#{classId}
+            </if>
+            <if test="className!=null and className!=''">
+                and ClassName=#{className}
+            </if>
+        </where>
+    </select>
+    <!--查询最后一个学生，获取id值-->
+    <select id="lastStudent" resultType="int">
+        select id from student order by id DESC limit 1;
+    </select>
+    <!--添加学生-->
+    <insert id="addStudent">
+        INSERT into student VALUES(#{id},#{sno},#{sname},#{ssex},#{sage},#{sphone},#{classId},#{className},#{dormitory});
+    </insert>
+    <!--删除学生-->
+    <delete id="deleteStudent">
+        delete from student where id=#{id}
+    </delete>
+    <!--修改学生-->
+    <update id="modStudent">
+        update student set sno=#{sno},sname=#{sname},ssex=#{ssex},sage=#{sage},sphone=#{sphone},classId=#{classId},className=#{className},dormitory=#{dormitory} where id=#{id};
+    </update>
+</mapper>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ClassMapper">
+    <!--查询学生信息-->
+    <select id="Import" resultType="com.beans.Classes">
+        select * from class
+        <where>
+            <if test="classId!=null and classId!=''">
+                and ClassId=#{classId}
+            </if>
+            <if test="className!=null and className!=''">
+                and ClassName=#{className}
+            </if>
+            <if test="teacher!=null and teacher!=''">
+                and Teacher=#{teacher}
+            </if>
+        </where>
+        LIMIT #{num},#{count}
+    </select>
+    <!--对应学生总数-->
+    <select id="Mount" resultType="int">
+        select count(*) from class
+        <where>
+            <if test="classId!=null and classId!=''">
+                and ClassId=#{classId}
+            </if>
+            <if test="className!=null and className!=''">
+                and ClassName=#{className}
+            </if>
+            <if test="teacher!=null and teacher!=''">
+                and Teacher=#{teacher}
+            </if>
+        </where>
+    </select>
+    <!--查询最后一个学生，获取id值-->
+    <select id="lastClass" resultType="int">
+        select id from class order by id DESC limit 1;
+    </select>
+    <!--添加学生-->
+    <insert id="addClass">
+        INSERT into class VALUES(#{id},#{classId},#{className},#{teacher});
+    </insert>
+    <!--删除学生-->
+    <delete id="deleteClass">
+        delete from class where id=#{id}
+    </delete>
+    <!--修改学生-->
+    <update id="modClass">
+        update class set classId=#{classId},className=#{className},teacher=#{teacher} where id=#{id};
+    </update>
+</mapper>

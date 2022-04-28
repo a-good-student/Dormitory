@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.StudentHealthMapper">
+    <!--查询学生信息-->
+    <select id="Import" resultType="com.beans.StudentHealth">
+        select * from student_health
+        <where>
+            <if test="sno!=null and sno!=''">
+                and sno=#{sno}
+            </if>
+            <if test="sname!=null and sname!=''">
+                and sname=#{sname}
+            </if>
+            <if test="dormId!=null and dormId!=''">
+                and dormId=#{dormId}
+            </if>
+        </where>
+        LIMIT #{num},#{count}
+    </select>
+    <!--对应学生总数-->
+    <select id="Mount" resultType="int">
+        select count(*) from student_health
+        <where>
+            <if test="sno!=null and sno!=''">
+                and sno=#{sno}
+            </if>
+            <if test="sname!=null and sname!=''">
+                and sname=#{sname}
+            </if>
+            <if test="dormId!=null and dormId!=''">
+                and dormId=#{dormId}
+            </if>
+        </where>
+    </select>
+    <!--查询最后一个学生，获取id值-->
+    <select id="lastStudentHealth" resultType="int">
+        select id from student_health order by id DESC limit 1;
+    </select>
+    <!--添加学生-->
+    <insert id="addStudentHealth">
+        INSERT into student_health VALUES(#{id},#{sno},#{sname},#{studentHealth},#{classId},#{dormId},#{createTime},#{updateTime});
+    </insert>
+    <!--删除学生-->
+    <delete id="deleteStudentHealth">
+        delete from student_health where id=#{id}
+    </delete>
+    <!--修改学生-->
+    <update id="modStudentHealth">
+        update student_health set sno=#{sno},sname=#{sname},studentHealth=#{studentHealth},classId=#{classId},dormId=#{dormId},createTime=#{createTime},updateTime=#{updateTime} where id=#{id};
+    </update>
+</mapper>
